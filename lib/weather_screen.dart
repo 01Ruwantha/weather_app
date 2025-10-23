@@ -5,8 +5,8 @@ import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:weather_app/additional_info_item.dart';
-import 'package:weather_app/hourly_forcast_item.dart';
+import 'package:weather_app/widgets/additional_info_item.dart';
+import 'package:weather_app/widgets/hourly_forcast_item.dart';
 
 class WeatherScreen extends StatefulWidget {
   const WeatherScreen({super.key});
