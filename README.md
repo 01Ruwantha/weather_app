@@ -10,7 +10,7 @@
 
 </div>
 
-## 🖼️ 
+## 🖼️ Screenshots
 
 <p align="center">
   <img 
@@ -26,6 +26,11 @@
 - **🕒 24-Hour Forecast** - Detailed hourly weather predictions
 - **📈 Comprehensive Metrics** - Temperature, humidity, wind speed, and pressure
 - **🌡️ Celsius Support** - Temperature in metric units
+
+### 💾 Data Persistence
+- **💾 Local Storage** - Automatically saves your last searched city using SharedPreferences
+- **🔄 Session Persistence** - Remembers your preferred city between app launches
+- **⚡ Quick Loading** - Instantly loads your saved city on app startup
 
 ### 🎨 User Experience
 - **📱 Beautiful UI/UX** - Modern, dark theme with Material 3 design
@@ -51,7 +56,7 @@
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/weather_app.git
+   git clone https://github.com/01Ruwantha/weather_app.git
    cd weather_app
    ```
 
@@ -87,7 +92,8 @@ weather_app/
 ├── 📁 assets/                  # App assets
 │   ├── icon.png               # App icon
 │   ├── splash.png             # Splash screen image
-│   └── branding.png           # Branding image
+│   ├── branding.png           # Branding image
+│   └── images/                # Screenshots and design assets
 ├── 📁 ios/                     # iOS specific files
 ├── 📁 lib/
 │   ├── 📁 widgets/             # Reusable components
@@ -101,7 +107,8 @@ weather_app/
 ├── 📁 web/                     # Web specific files
 ├── 📁 windows/                 # Windows specific files
 ├── .env                        # Environment variables
-└── pubspec.yaml               # Dependencies configuration
+├── pubspec.yaml               # Dependencies configuration
+└── README.md                  # Project documentation
 ```
 
 ## 🎨 UI Components
@@ -141,6 +148,35 @@ Future<Map<String, dynamic>> getCurrentWeather(String cityName) async {
 - ⚡ Real-time data updates
 - 🔒 Secure API key management
 
+## 💾 Local Storage Implementation
+
+The app uses **SharedPreferences** to persist user preferences:
+
+```dart
+// Save city to local storage
+Future<void> _saveCity(String city) async {
+  final prefs = await SharedPreferences.getInstance();
+  await prefs.setString('saved_city', city);
+}
+
+// Load saved city on app startup
+Future<void> _loadSavedCity() async {
+  final prefs = await SharedPreferences.getInstance();
+  final savedCity = prefs.getString('saved_city');
+  if (savedCity != null && savedCity.isNotEmpty) {
+    setState(() {
+      _currentCity = savedCity;
+    });
+  }
+}
+```
+
+**Storage Features:**
+- 💾 Automatic city persistence
+- 🔄 Seamless app restarts
+- ⚡ Fast local storage access
+- 🔒 Secure data handling
+
 ## 🛠️ Technologies Used
 
 | Technology | Purpose |
@@ -151,6 +187,7 @@ Future<Map<String, dynamic>> getCurrentWeather(String cityName) async {
 | **HTTP** | API communication |
 | **Intl** | Date/time formatting |
 | **flutter_dotenv** | Environment variables |
+| **shared_preferences** | Local data persistence |
 | **flutter_launcher_icons** | App icon generation |
 | **flutter_native_splash** | Splash screen setup |
 
@@ -165,6 +202,7 @@ dependencies:
   intl: ^0.19.0
   flutter_dotenv: ^6.0.0
   flutter_native_splash: ^2.4.7
+  shared_preferences: ^2.5.3
 
 dev_dependencies:
   flutter_test:
@@ -208,7 +246,7 @@ flutter_native_splash:
 
 ## 🎯 Key Features Implementation
 
-### Smart City Search
+### Smart City Search with Persistence
 ```dart
 void _searchCity() {
   final city = _cityController.text.trim();
@@ -217,6 +255,7 @@ void _searchCity() {
       _currentCity = city;
       weather = getCurrentWeather(city);
     });
+    _saveCity(city); // Automatically save to local storage
   }
 }
 ```
@@ -228,8 +267,21 @@ IconData _getWeatherIcon(String weatherCondition) {
     case 'clouds': return Icons.cloud;
     case 'rain': return Icons.beach_access;
     case 'clear': return Icons.wb_sunny;
-    // ... more cases
+    case 'thunderstorm': return Icons.flash_on;
+    case 'snow': return Icons.ac_unit;
+    case 'drizzle': return Icons.grain;
+    default: return Icons.wb_sunny;
   }
+}
+```
+
+### Local Storage Initialization
+```dart
+Future<void> _initializeWeather() async {
+  await _loadSavedCity(); // Load saved city first
+  setState(() {
+    weather = getCurrentWeather(_currentCity); // Then fetch weather
+  });
 }
 ```
 
@@ -248,6 +300,13 @@ if (snapshot.hasError) {
   );
 }
 ```
+
+## 🔄 App Lifecycle
+
+1. **App Launch** → Load saved city from SharedPreferences
+2. **City Search** → Fetch weather data and save city locally
+3. **App Restart** → Automatically load last searched city
+4. **Data Refresh** → Update weather information on demand
 
 ## 🚀 Building for Production
 
@@ -276,6 +335,13 @@ We welcome contributions! Please feel free to submit issues and pull requests.
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
+## 📝 Development Guidelines
+
+- Follow Flutter best practices and Dart style guide
+- Use meaningful variable and function names
+- Add comments for complex logic
+- Test on multiple devices and screen sizes
+- Ensure responsive design principles
 
 ## 🐛 Bug Reports & Feature Requests
 
@@ -290,7 +356,17 @@ Found a bug or have a feature request? Please let us know!
 - **Flutter Team** - For the amazing cross-platform framework
 - **Material Design** - For the beautiful design system
 - **Weather Icons** - For intuitive weather representation
+- **Shared Preferences** - For seamless local data persistence
 
+---
+
+## 🔗 Links
+
+- [Flutter Documentation](https://flutter.dev/docs)
+- [OpenWeatherMap API](https://openweathermap.org/api)
+- [Shared Preferences Package](https://pub.dev/packages/shared_preferences)
+- [Dart Packages](https://pub.dev/)
+  
 ---
 
 <div align="center">
@@ -302,4 +378,9 @@ Found a bug or have a feature request? Please let us know!
 <p align="center">
   <img src="https://github.com/01Ruwantha/weather_app/blob/main/assets/branding.png?raw=true" alt="branding png" width="200"/>
 </p>
+
+**⭐ Star this repository if you find it helpful!**
+
 </div>
+
+
