@@ -1,4 +1,4 @@
-# <p align="center"><img src="https://raw.githubusercontent.com/your-username/weather_app/main/assets/icon.png?raw=true" alt="App Logo" width="150"/></p> <p align="center">Beautiful & Modern Weather App</p>
+# <p align="center"><img src="https://github.com/01Ruwantha/weather_app/blob/main/assets/splash.png?raw=true" alt="App Logo" width="150"/></p><p align="center"><img src="https://github.com/01Ruwantha/weather_app/blob/main/assets/branding.png?raw=true" alt="branding png" width="200"/></p><p align="center">Beautiful & Modern Weather App</p>
 
 <div align="center">
 
@@ -10,7 +10,7 @@
 
 </div>
 
-## 🖼️ Design
+## 🖼️ 
 
 <p align="center">
   <img 
