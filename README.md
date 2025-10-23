@@ -5,32 +5,18 @@
 [![Flutter](https://img.shields.io/badge/Flutter-3.0+-blue.svg)](https://flutter.dev)
 [![Dart](https://img.shields.io/badge/Dart-3.0+-blue.svg)](https://dart.dev)
 [![OpenWeather](https://img.shields.io/badge/OpenWeather-API-orange.svg)](https://openweathermap.org)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 *A beautiful and intuitive weather app built with Flutter that provides real-time weather information with stunning visuals!*
 
 </div>
 
-## 📹 Demo
+## 🖼️ Design
 
 <p align="center">
   <img 
-  src="https://github.com/your-username/weather_app/blob/main/assets/splash.png?raw=true" 
-  alt="App Demo" 
-  width="150" 
-  height="300"
-/>
+  src="https://github.com/01Ruwantha/weather_app/blob/main/assets/images/Weather%20App.png?raw=true" 
+  alt="Weather App Design" />
 </p>
-
-## 📱 Screenshots
-
-<div align="center">
-
-| Main Weather View | Hourly Forecast | Additional Info |
-|-------------------|-----------------|-----------------|
-| <img src="https://github.com/your-username/weather_app/blob/main/assets/splash.png?raw=true" alt="Main Weather" width="150" height="300"> | <img src="https://github.com/your-username/weather_app/blob/main/assets/splash.png?raw=true" alt="Hourly Forecast" width="150" height="300"> | <img src="https://github.com/your-username/weather_app/blob/main/assets/splash.png?raw=true" alt="Additional Info" width="150" height="300"> |
-
-</div>
 
 ## ✨ Features
 
@@ -290,9 +276,6 @@ We welcome contributions! Please feel free to submit issues and pull requests.
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🐛 Bug Reports & Feature Requests
 
